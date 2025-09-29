@@ -1,0 +1,35 @@
+# Entorno virtual
+venv/
+.env
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Configuración IDE
+.vscode/
+.idea/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Archivos grandes (audios y videos)
+*.wav
+*.mp3
+*.flac
+*.mp4
+*.avi
+
+# Modelos entrenados o pesos
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
+
+# Datos pesados
+dataset/
+data/
+venv/
