@@ -1,16 +1,7 @@
-# from core.tts_service import generate_voice
-# from core.exporter import export_audio
-
-# if __name__ == "__main__":
-#     texto = "La puerta se cerró sola... y alguien respiraba detrás de ti."
-#     mp3_path = generate_voice(texto, "terror.mp3")
-#     wav_path = export_audio(mp3_path, "wav")
-
-#     print(f"✅ Audio generado: {mp3_path}")
-#     print(f"✅ Audio convertido: {wav_path}")
-
 # main.py
 from core.tts_service import generate_voice, list_speakers, list_languages
+from core.audio_processor import AudioProcessor
+import re
 
 def main():
     print("🎙️ Bienvenido a DarkVoices - Generador de voces de terror y suspenso 🎧")
@@ -45,10 +36,23 @@ def main():
             speaker = speakers[0].strip()
 
     # 4️⃣ Generar archivo
-    output_path = "output/voz_final.wav"
+    # Crear un nombre de archivo dinámico a partir del texto
+    safe_filename = "_".join(re.sub(r'[^\w_]', '', word) for word in text.split()[:3]).lower()
+    output_path = f"output/{safe_filename}.wav"
+    
     generate_voice(text, output_path, speaker=speaker, language=language)
 
-    print(f"\n✅ Audio generado con éxito en: {output_path}\n")
+    print(f"\n✅ Audio generado con éxito en: {output_path}")
+
+    # 5️⃣ (Opcional) Añadir efectos de audio
+    # choice = input("\n👉 ¿Quieres añadir música de fondo? (s/n) [default=n]: ") or "n"
+    # if choice.lower() == 's':
+    #     # Deberás tener un archivo de audio en data/sounds/
+    #     # Por ejemplo: data/sounds/terror_background.mp3
+    #     processor = AudioProcessor(output_path)
+    #     final_audio = processor.add_background("data/sounds/terror_background.mp3", f"output/{safe_filename}_con_fondo.wav")
+    #     print(f"\n✅ Audio con fondo generado en: {final_audio}\n")
+
 
 if __name__ == "__main__":
     main()

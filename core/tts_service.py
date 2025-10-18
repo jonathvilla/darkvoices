@@ -1,17 +1,3 @@
-# from gtts import gTTS
-# from config.settings import LANGUAGE, OUTPUT_DIR
-# import os
-
-# def generate_voice(text: str, filename: str = "terror.mp3") -> str:
-#     """
-#     Genera un archivo de audio a partir de texto.
-#     Retorna la ruta del archivo generado.
-#     """
-#     path = os.path.join(OUTPUT_DIR, filename)
-#     tts = gTTS(text=text, lang=LANGUAGE)
-#     tts.save(path)
-#     return path
-# 🔧 Modelo que quieres usar (puedes cambiarlo en config/settings.py)
 from TTS.api import TTS
 
 # Diccionario de modelos por idioma
