@@ -24,3 +24,4 @@ pip install -r requirements.txt
 pip install TTS
 sudo apt install ffmpeg
 sudo apt install ffmpeg espeak-ng python3-dev build-essential
+pip install -r requirements.txt
